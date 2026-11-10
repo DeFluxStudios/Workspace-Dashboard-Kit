@@ -1,0 +1,12 @@
+Workspace Dashboard Kit
+Copyright (C) 2026 DeFluxStudios
+
+Code (Python, PowerShell, C#, JavaScript, CSS and command scripts): GNU General Public License version 2.
+See LICENSE. There is NO WARRANTY.
+
+Documentation and artwork (Markdown files, and everything in payload/art/): Creative Commons Attribution 4.0
+International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+Credit for the artwork: DeFluxStudios.
+
+No third-party code is included. The optional screensaver is built on your own PC from DashboardSaver.cs with the
+C# compiler that ships with Windows.

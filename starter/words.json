@@ -1,0 +1,69 @@
+{
+  "_read_me": "Every word in the dashboard's fire section. {name} is a real number counted at build time; a line whose number is absent or zero is dropped, so nothing brags about nothing. Entries with \"placeholder\": true are labelled on the page (friends, profile) or hidden (quotes) until you replace them and remove that flag. A quote must appear word for word in a real file in this workspace or it is dropped. Numbers: commits, decisions, files, projects, under_way, tests, heat, next_mark, mark_steps, plus preserved and live_total when those exist. {clock} works only in late_night. No em dashes.",
+  "heading": "KEEP THE FIRE LIT",
+  "marquee": [
+    "~*~ WELCOME TO THE FIRE ~*~",
+    "this page remembers so you don't have to",
+    "{projects} projects on the board",
+    "{decisions} decisions written down",
+    "{live_total} things out in the world",
+    "{preserved} originals kept safe",
+    "no streaks, no timers, nothing here expires"
+  ],
+  "about": [
+    "This page remembers, so you don't have to. Every number comes from the real files.",
+    "No streaks. No timers. Nothing here expires. Come back whenever."
+  ],
+  "paintings": [
+    {"key": "frog_spellblade", "title": "The Frog Spellblade", "focus": "52% 30%"},
+    {"key": "cat_necromancer", "title": "The Cat Necromancer", "focus": "50% 22%"},
+    {"key": "frog_monk", "title": "The Frog Monk", "focus": "50% 38%"},
+    {"key": "tavern_mage", "title": "The Night at the Tavern", "focus": "55% 30%"}
+  ],
+  "lines": [
+    {"text": "REPLACE: a short line copied word for word from a file in this workspace.",
+     "who": "REPLACE: who or what said it", "file": "REPLACE/path/to/that/file.md", "placeholder": true}
+  ],
+  "loops": {
+    "spark": {"title": "SPARK", "when": "Under a minute. Just look at this one.", "button": "roll again"},
+    "campfire": {"title": "CAMPFIRE", "when": "About 20 minutes. Sit down with this one.", "button": "roll again"},
+    "beacon": {"title": "BEACON", "when": "The long road, weeks of it. The goal: every project burning blue."}
+  },
+  "friends": [
+    {"pic": "avatar_1.png", "name": "friend_one", "placeholder": true, "says": "thanks for the add!! {projects} projects on the board. Come back whenever."},
+    {"pic": "avatar_2.png", "name": "friend_two", "placeholder": true, "says": "{decisions} decisions written down. That is what practice looks like."},
+    {"pic": "avatar_3.png", "name": "friend_three", "placeholder": true, "says": "{commits} commits!!! I counted twice. I cannot count. Still {commits}!!!"},
+    {"pic": "avatar_4.png", "name": "friend_four", "placeholder": true, "says": "Test files on guard duty: {tests}. I tried the back door. Rude."},
+    {"pic": "avatar_5.png", "name": "friend_five", "placeholder": true, "says": "{files} files in this place, and I have looked at most of them."},
+    {"pic": "avatar_6.png", "name": "friend_six", "placeholder": true, "says": "{preserved} originals saved before anyone touched them."},
+    {"pic": "avatar_7.png", "name": "friend_seven", "placeholder": true, "says": "{live_total} things out in the world. Nice."},
+    {"pic": "avatar_8.png", "name": "friend_eight", "placeholder": true, "says": "No streaks here. Nothing expires. I just like the fire."}
+  ],
+  "late_night": {"pic": "avatar_1.png", "name": "friend_one", "placeholder": true,
+    "says": "It is {clock}. The work can wait until morning. It is very good at waiting."},
+  "profile": {
+    "placeholder": true,
+    "name": "The Director",
+    "tagline": "keeper of the fire",
+    "mood": "blazing",
+    "network": "You are in this workspace's extended network.",
+    "interests": [
+      ["General", "REPLACE: what this workspace's owner cares about, from what you can read here"]
+    ]
+  },
+  "marks": [
+    {"title": "THE BLADE", "fact": "tests", "meaning": "test files on guard"},
+    {"title": "THE LEDGER", "fact": "decisions", "meaning": "decisions written down"},
+    {"title": "THE TABLE", "fact": "projects", "meaning": "projects on the table"},
+    {"title": "THE MAP", "fact": "files", "meaning": "files in your world"}
+  ],
+  "construction": "UNDER CONSTRUCTION: {under_way} projects on the anvil",
+  "webring": "This site is a proud member of the WORKSPACE WEBRING",
+  "badges": [
+    {"text": "NO STREAKS HERE", "file": "workspace_dashboard/psychology_checklist.md"},
+    {"text": "BEST VIEWED IN THE DARK"},
+    {"text": "SIGN THE GUESTBOOK", "file": "workspace_dashboard/Guestbook.md"}
+  ],
+  "song": "Keep the Fire Lit (MIDI version)",
+  "mascot": {"image": "mascot.png", "word": "ribbit"}
+}

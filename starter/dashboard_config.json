@@ -1,0 +1,26 @@
+{
+  "_read_me": "Everything workspace-specific about this dashboard. Keys you delete fall back to defaults. See workspace_dashboard/HOW_TO_FILL.md.",
+  "title": "",
+  "tagline": "",
+  "overview": "docs/Works_in_Development.md",
+  "ledger": "docs/project-ledger.md",
+  "decisions": "docs/decision-log.md",
+  "links": [],
+  "live_record": null,
+  "count_files": {},
+  "activity_skip": ["build/", "dist/", "out/", "coverage/", "preservation/"],
+  "secret_patterns": [],
+  "hidden_folders": [],
+  "status_words": {
+    "live": ["live", "shipped", "released", "in production", "done", "deployed", "published"],
+    "blocked": ["blocked", "disabled"],
+    "idea": ["proposal", "suggestion", "handoff", "idea", "planned", "not started", "not begun", "to do", "backlog"],
+    "local": ["local", "locally", "built", "building", "working", "works", "in progress", "under way", "underway", "ongoing", "active", "wip", "draft", "drafted", "drafting", "started", "prototype", "beta", "alpha", "testing", "tested", "implemented", "in development", "existing", "delivered", "unblocked", "half done", "partly done", "partially done", "almost done", "nearly done", "mostly done"]
+  },
+  "heat": {"none": 1, "idea": 1, "local": 2, "blocked": 2, "live": 3},
+  "poll_seconds": 60,
+  "watch_seconds": 20,
+  "editor": "vscode",
+  "motion": "always",
+  "reveal_links": false
+}

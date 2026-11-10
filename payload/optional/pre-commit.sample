@@ -1,0 +1,9 @@
+#!/bin/sh
+# Optional. Blocks commits of work that carry no change to the ledger or decision log.
+# To use it: add the lines below to your existing .git/hooks/pre-commit, or to your hook
+# manager's hook. Do not repoint core.hooksPath, which would disable any hooks you have.
+# Without Python it passes and says so, rather than blocking every commit.
+if command -v python3 >/dev/null 2>&1; then DASH_PY=python3
+elif command -v python >/dev/null 2>&1; then DASH_PY=python
+else echo "Dashboard commit check skipped: no Python found."; exit 0; fi
+"$DASH_PY" workspace_dashboard/build_dashboard.py --check-staged || exit 1
