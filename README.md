@@ -57,42 +57,16 @@ not copy a config's `id` to another workspace: the two would share browser stora
 
 ## Privacy
 
-The page is local and is not for sharing: it holds this computer's folder paths. Files whose names look like credentials
-(`.env`, `*secret*`, `*credential*`, `*token*`, `*api key*`, `*.pem`, `*.key`, `*.pfx`, `*.p12`, `*.kdbx`, `id_rsa`, `id_ecdsa`, `.netrc`, `.npmrc`, `.pypirc`, `service-account*` and others) are left off every list,
-their names are taken out of document text and commit messages, including names only in Git history, and their contents are never read. The page shows only how many were left
-off. That matching is by name, so a harmless `tokenizer.py` or `vault_notes.md` is hidden too. A name shaped like a credential, such as `pass=x1y2z3.txt`, `auth=FaKe7abc.txt` or `dbpass-FaKeAb5.txt`, is hidden the same way. A hidden name that is a
-single plain word, such as a folder called `tokens`, is only taken out of text when written as a path: "Rotate the tokens"
-stays as written. A line in a document, commit message or guestbook that matches a credential form, such as a known key
-format, `Authorization: Bearer x`, `token: x`, `secret = x`, `pass: x`, `passphrase: x`, `<password>x</password>`, `Cookie: a=x`
-or `mysql -px`, is withheld whole. Link targets are also read percent-decoded. A `words.json` entry holding one is dropped.
-Looser forms count only when the value looks generated, meaning at least 6 characters with letters and digits, or 8 with inner
-capitals: plurals (`tokens: x`), suffixed or glued labels (`TOKEN_PROD=x`, `dbpass=x`), `key: x`, `token (prod): x`, `token -> x`,
-`password - x`, a value in brackets (`secret: [x]`), `--token x`, `pw: x`, `creds: x`, `pass word: x`, `login: a / x`, and `?sig=x` or `?key=x` in an address.
-`passcode: x`, `sshpass -p x` and `curl -u a:x` count like `pass: x`. Labels that are everyday words need a value that looks strongly generated, meaning 8 or more
-characters with inner capitals, or three changes between letters and digits, or 12 or more unbroken characters with letters and digits: `pin: x`, `auth: x`, `session: x`,
-`password x`, `password as x`, `password | x` and `the password is x`. So does a phrase such as `hall pass:`, `boarding pass:`, `bypass:`, `cache key:` or `answer key:`, which otherwise stays as prose.
-Each line is also read with HTML entities decoded, invisible characters removed, common Cyrillic and Greek lookalike letters replaced and spaced letters joined, and a Markdown link's label is read alone.
+The dashboard is a local page for your own PC. It is not meant to be shared, because it shows your folder paths.
 
-The matched value is then removed wherever else it appears on the page, in any case. A value of 8 or more characters that looks
-generated also goes when it sits inside a longer word, is split by Markdown marks, or is written in base64. A plain word or a
-number goes only as a whole word, and base64 of it stays. Other encodings and altered copies stay. The build note says how many
-lines were withheld and from which file, including `dashboard_config.json`. A last scan stops the build if a matched value or form
-still reaches the page, except a value that is only a number, which could be a port or a time. That scan reads the page's text with tags removed and escapes decoded.
+- **Secrets stay off the page.** Files that look like credentials (`.env`, `*.key`, `*secret*`, `id_rsa` and similar) are never read or listed. The page only says how many were left out.
+- **Lines that look like passwords or keys are withheld**, for example `password: x`, `token: x` or `Authorization: Bearer x`, in documents, commit messages and the guestbook.
+- **A final check stops the build** if anything that looks like a secret still reaches the page.
+- **It errs on the safe side.** A harmless file such as `tokenizer.py`, or a line such as `Secret: door`, can be hidden too. The build note tells you what was withheld so you can reword it.
 
-Some ordinary lines are withheld too, because they fit a form: `Secret: door`, `pass: first`, `Next step for the password: rotate`. The note reports them. Reword the line to keep it.
-A word in the list of non-values after a label, as in `password: required` or `API key: none`, stays and does not stop the build.
+- **Detection is by pattern and can miss things.** Don't keep real passwords or keys in workspace documents.
 
-The note for a commit message says the credential is in Git history, because it stays there until that history is rewritten.
-
-**Detection is by pattern and can miss things.** A withheld line does not mean the rest of the file or the page holds no
-credential, and no note means only that no pattern matched. These can still reach the page: a plain password with no label,
-one in a sentence ("the password is x"), one in a table cell, a single word after a colon followed by two or more words, which
-reads as prose, a plain word after a looser form (`tokens: hunter`, `--password hunter`), a short number after `pass:` or `token:`
-(under 4 digits, or with other text on the line, or after other words, as in "Tests pass: 1200"), a value that does not look generated enough after `pw:`, `creds:`, `pin:`, `auth:` or `session:`
-or after `password` with no separator (`pin: 1234`, `pw: hunter`, `password hunter`), letters that look alike from other alphabets beyond the common Cyrillic and Greek ones, labels split other ways
-(`p-a-s-s-w-o-r-d: x`), other commands that take a password, and file names of other shapes.
-Values under 4 characters go with their line but are not searched for elsewhere. Keep credentials out of
-the documents the page reads, and do not share the page.
+The full rules, with every pattern and exception, are in [PRIVACY.md](PRIVACY.md).
 
 ## Optional screensaver (Windows)
 
@@ -108,7 +82,7 @@ with a prompt for an AI assistant, is `payload/optional/screensaver/GUIDE.md`.
 3. Delete the three starter documents, if you did not keep them.
 4. If you enabled the opt-in Explorer links: run `install_explorer_links.ps1 -Scheme ... -Uninstall` before step 2.
 5. If you installed the opt-in screensaver: run `workspace_dashboard\optional\screensaver\install_screensaver.ps1 -Remove` before step 2.
-5. Browser storage left behind is a few small `wsdash-` keys, and it does nothing.
+6. Browser storage left behind is a few small `wsdash-` keys, and it does nothing.
 
 ## In this kit
 
@@ -116,6 +90,7 @@ with a prompt for an AI assistant, is `payload/optional/screensaver/GUIDE.md`.
 |---|---|
 | `START_HERE.md` | Steps for a Claude session in the other workspace |
 | `install_dashboard.py` | The installer |
+| `PRIVACY.md` | The full privacy rules the builder follows |
 | `payload/` | What is copied: `build_dashboard.py`, `theme.css`, `theme.js`, `make_art.py`, `art/web/`, `optional/` |
 | `starter/` | Templates for config, words, guestbook and the three documents, and `HOW_TO_FILL.md` |
 | `psychology_checklist.md` | The design rules behind the fire section, mapped to the page |

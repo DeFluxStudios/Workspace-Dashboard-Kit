@@ -1741,7 +1741,7 @@ class FifthReview(KitCase):
                 self.assertNotIn(self.V, self.page(target))
 
     def test_readme_names_what_stays_unmatched(self):
-        readme = " ".join((KIT / "README.md").read_text(encoding="utf-8").split())
+        readme = " ".join(((KIT / "README.md").read_text(encoding="utf-8") + (KIT / "PRIVACY.md").read_text(encoding="utf-8")).split())  # README short version, PRIVACY.md full rules
         for words in ("lookalike", "invisible characters", "HTML entities", "`pin: 1234`", "`Secret: door`", "`hall pass:`"):
             self.assertIn(words, readme)
 

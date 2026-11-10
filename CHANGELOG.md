@@ -3,6 +3,7 @@
 ## 0.1.0-test.7 (2026-11-09)
 
 - **Screensaver (optional, Windows):** `payload/optional/screensaver/` (installed to `workspace_dashboard/optional/screensaver/`). Source only: `install_screensaver.ps1` compiles `DashboardSaver.cs` with the Windows C# compiler and points it at the workspace's own page. `-Activate` makes it the current user's screensaver after saving the old setting; `-Remove` puts it back. Uses Edge or Chrome in kiosk mode with its own profile. Tested by a simulated install into a temporary workspace (build and page path); not yet run as a real screensaver on another PC.
+- **README:** the Privacy section is now a short plain summary; the full rules moved to `PRIVACY.md`. Licence files added (`LICENSE` GPLv2, `NOTICE.txt`).
 
 ## 0.1.0-test.6 (2026-11-04)
 
